@@ -5,4 +5,6 @@ const router = require('express').Router();
 router.route('/')
 router.get(getAllThoughts);
 router.post(createThoughts);
-router.post('/thought/:id/delete')
+router.post('/thought/:id')
+router.put('updateThought')
+router.delete('/delete/:id')

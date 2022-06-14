@@ -2,7 +2,7 @@ const { Thoughts } = require('../models');
 
 const thoughtsController = {
   
-  addThoughts({ params, body }, res) {
+  getallThoughts({ params, body }, res) {
     console.log(body);
     Thought.create(body)
       .then(({ _id }) => {
@@ -13,7 +13,11 @@ const thoughtsController = {
 
   // remove comment
   removethought()
-
+  removeReaction(req, res) {
+    Thoughts.findOneAndUpdate(
+      {_id:req.params.thoughtsId}, 
+      {$pull: {reactions:  }}
+  }
   
 
 
