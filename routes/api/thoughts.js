@@ -2,5 +2,7 @@ const router = require('express').Router();
 
 // Set up GET all and POST at /api/thoughts 
 
-router.get('/',thoughts(req,res))
-router.post();
+router.route('/')
+router.get(getAllThoughts);
+router.post(createThoughts);
+router.post('/thought/:id/delete')

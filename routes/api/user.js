@@ -14,15 +14,15 @@ const router = require('express').Router();
   router.get('/user/:id', function  (req, res) {
     res.send(req.params);
   })
-  router.post()//is this necessary? What exactly would this do for THIS route?
-  router.delete();//is this necessary? What exactly would this do for THIS route?
+  router.post('/api/users/:userId/friends/:friendId',(req, res)=> {
+    res.send('Add a new user')
+  })
+  router.delete('/user', (req,res)=>{
+     res.send('Got a DELETE request from user')
+  })//is this necessary? What exactly would this do for THIS route?
 
 
 // Set up GET one, PUT, and DELETE at /api/users/:userId/friends/:friendId
-router
-  .route('/:id')
-  .get()
-  .put()
-  .delete();
+
 
 module.exports = router;
