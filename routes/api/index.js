@@ -1,8 +1,8 @@
 //require router from express
 const router = require('express').Router();
 //declare variables that require your different routes
-const thoughtsRoutes = require('./thoughts');
-const userRoutes = require('./user');
+const thoughtRoute = require('./thoughts');
+const userRoute = require('./user');
 
 //make your router use the different routes THROUGH different 
 //additional pieces of your entire endpoint url
@@ -14,11 +14,11 @@ const userRoutes = require('./user');
 //whatever route is using this line, slaps: /api at its end then try to use routes from thoughtsRoutes var
 //btw, the whatever route was localhost:3001/api already
 //so now this looks like localhost:3001/api/api
-router.use('/thoughts', thoughtsRoutes);
+router.use('/thoughts', thoughtRoute);
 
 //whatever route is using this line, slaps: /api at its end then try to use routes from userRoutes var
-router.use('/user', userRoutes);
+router.use('/user', userRoute);
 
 
-
+module.exports =router
 //export your router so that it can be used by whoever requires THIS file
