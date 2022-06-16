@@ -5,14 +5,14 @@ const Userschema = new Schema({
     type: String,
     unique: true
   },
-  email: [
+  email: 
     {
-      type: Schema.Types.ObjectId,
+      type: String,
       unique: true
       
     }
     
-  ]
+  
 });
 
 const User = model('User', Userschema);

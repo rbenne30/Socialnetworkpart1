@@ -1,4 +1,8 @@
 const router = require('express').Router();
+const{
+  allUsers,createUser,getOneUser,updateUser,removeUser
+
+} =require('../../controllers/user-controllers');
 
 //require {getAllUsers, createUser ...} from the controller file exporting those functions
 
@@ -8,21 +12,18 @@ const router = require('express').Router();
 //(maybe thoughts-controller.js and user-controller.js)
 
 // Set up GET all and POST at /api/users
-  router.get('/', function (req, res) {
-    res.send ('Get all users')
-  })//Tries to GET all users back to the requester
-  router.get('/user/:id', function  (req, res) {
-    res.send(req.params);
-  })
-  router.post('/api/users/:userId/friends/:friendId',(req, res)=> {
-    res.send('Add a new user')
-  })
-  router.delete('/user', (req,res)=>{
-     res.send('Got a DELETE request from user')
-  })//is this necessary? What exactly would this do for THIS route?
+  router.route('/')
+  .get(allUsers) 
+  .post(createUser)
+  
+  
+  router.route('/:id')
+  .get(getOneUser)
+  .put(updateUser)
+  .delete(removeUser)
 
+router.route('/:userId/friends')
 
-// Set up GET one, PUT, and DELETE at /api/users/:userId/friends/:friendId
-
+router.route('/userId/friends/:friendsId')
 
 module.exports = router;
