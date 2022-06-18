@@ -22,8 +22,8 @@ const{
   .put(updateUser)
   .delete(removeUser)
 
-router.route('/:userId/friends')
-
 router.route('/userId/friends/:friendsId')
+.post()
+.delete()
 
 module.exports = router;

@@ -21,39 +21,40 @@ const UserController = {
         User.findOne({ _id: params.id })
             .then((data) => {
                 if (!data) {
-                    res.status(404).json({ message:'No users found with this id!'});
+                    res.status(500).json({ message:'No users found with this id!'});
                     return;
                 }
                 res.json(data);
 
             })
             .catch(err => {
-                res.status(400).json(err);
+                res.status(500).json(err);
             });
     },
 
     updateUser({ params, body }, res) {
+        console.log(req)
         User.findOneAndUpdate({ _id: params.id }, body, { new: true })
             .then(Data => {
                 if (!Data) {
-                    res.status(404).json({ message: 'No new user with this id!' });
+                    res.status(500).json({ message: 'No new user with this id!' });
                     return;
                 }
                 res.json(Data);
             })
-            .catch(err => res.status(400).json(err));
+            .catch(err => res.status(500).json(err));
     },
 
     removeUser({ params }, res) {
-        User.findOneAndDelete
+        User.findOneAndDelete ({_id: params.id})
             .then(Data => {
                 if (!Data) {
-                    res.status(404).json({ message: 'No User found with this is!' });
+                    res.status(500).json({ message: 'No User found with this is!' });
                     return;
                 }
                 res.json(Data);
             })
-            .catch(err => res.status(400).json(err));
+            .catch(err => res.status(500).json(err));
     }
 }
 module.exports = UserController
