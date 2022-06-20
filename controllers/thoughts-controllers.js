@@ -2,14 +2,14 @@ const { Thoughts, User } = require('../models');
 
 const thoughtsController = {
 
-  getAllThoughts(req, res) {
+  getAllThoughts({ body }, res) {
     Thoughts.find()
-      .sort({ createdAt: -1 })
+      //.sort({ createdAt: -1 })
       .then((data) => {
-        res.json(data)
-          .catch(err => {
-            res.status(500).json(err);
-          });
+        res.json(data)}
+      )
+      .catch((err) => {
+        res.json(err);
       })
   },
 
