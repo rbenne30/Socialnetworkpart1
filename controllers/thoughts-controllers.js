@@ -18,6 +18,7 @@ const thoughtsController = {
     Thoughts.create(body)
       .then((data) => {
         res.json(data)
+        
           .catch(err => res.status(500).json(err));
       })
   },
@@ -51,7 +52,7 @@ const thoughtsController = {
     Thoughts.findOneAndDelete({ _id: params.id })
       .then(Data => {
         if (!Data) {
-          res.status(500).json({ message: 'No thoughts found with this is!' });
+          res.status(500).json({ message: 'No thoughts found with this id!' });
           return;
         }
         res.json(Data);
